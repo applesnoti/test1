@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Support Center</title>
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#111827;
+    background:#fff;
+  }
+  a{text-decoration:none;color:inherit}
+
+  .hero{
+    min-height:425px;
+    background:#0868f7;
+    color:#fff;
+    text-align:center;
+    padding:55px 20px 120px;
+  }
+  .hero h1{
+    margin:0 0 65px;
+    font-size:58px;
+    line-height:1.1;
+    font-weight:700;
+  }
+  .search{
+    width:min(660px,92%);
+    height:58px;
+    margin:auto;
+    background:#fff;
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    padding:0 15px 0 30px;
+  }
+  .search input{
+    border:0;
+    outline:0;
+    width:100%;
+    font-size:18px;
+    color:#333;
+  }
+  .call-wrap{
+    display:flex;
+    justify-content:center;
+    margin-top:24px;
+  }
+  .call-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    min-width:190px;
+    padding:14px 24px;
+    border:2px solid #fff;
+    border-radius:6px;
+    background:#fff;
+    color:#0868f7;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
+    transition:.2s;
+  }
+  .call-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 14px rgba(0,0,0,.18);
+  }
+  .call-icon{
+    width:22px;
+    height:22px;
+    fill:currentColor;
+  }
+
+  .search button{
+    border:0;
+    background:none;
+    font-size:34px;
+    color:#0868f7;
+    cursor:pointer;
+  }
+
+  .container{
+    width:min(1040px,92%);
+    margin:-86px auto 0;
+    position:relative;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:35px;
+  }
+  .card{
+    min-height:330px;
+    background:#fff;
+    border-radius:6px;
+    box-shadow:0 4px 13px rgba(0,0,0,.18);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:35px 28px;
+    transition:.2s;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 7px 18px rgba(0,0,0,.2);
+  }
+  .icon{
+    width:76px;
+    height:76px;
+    display:grid;
+    place-items:center;
+    color:#1475f9;
+    margin-bottom:26px;
+  }
+  .icon svg{width:76px;height:76px;stroke:currentColor;fill:none;stroke-width:2}
+  .card h2{
+    font-size:22px;
+    margin:0 0 22px;
+    color:#0c0c0c;
+  }
+  .card p{
+    margin:0;
+    font-size:17px;
+    line-height:1.45;
+    max-width:270px;
+  }
+
+  .resources{
+    width:min(1040px,92%);
+    margin:100px auto 0;
+    text-align:center;
+  }
+  .section-title{
+    color:#17366f;
+    font-size:38px;
+    margin:0 0 48px;
+  }
+  .resources p{
+    font-size:19px;
+    margin:-15px 0 55px;
+  }
+  .resource-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:35px;
+  }
+  .resource{
+    min-height:168px;
+    border:1px solid #ddd;
+    border-radius:5px;
+    box-shadow:0 3px 12px rgba(0,0,0,.16);
+    display:flex;
+    align-items:center;
+    gap:28px;
+    padding:28px;
+    text-align:left;
+  }
+  .resource .icon{margin:0;flex:0 0 76px}
+  .resource h3{font-size:21px;margin:0 0 12px}
+  .resource p{font-size:16px;margin:0;line-height:1.45}
+
+  .help{
+    margin-top:100px;
+    background:#f2f5f9;
+    padding:90px 20px;
+    text-align:center;
+  }
+  .help h2{
+    margin:0 0 45px;
+    color:#17366f;
+    font-size:38px;
+  }
+  .help button{
+    border:2px solid #111;
+    background:#fff;
+    padding:14px 35px;
+    border-radius:5px;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+  }
+  .help button:hover{background:#f7f7f7}
+
+  footer{
+    background:#050505;
+    color:#fff;
+    padding:80px max(30px,calc((100% - 1040px)/2));
+  }
+  footer .brand{
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:45px;
+  }
+  footer .links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    font-size:15px;
+    margin-bottom:28px;
+  }
+  footer .links a:hover{text-decoration:underline}
+  footer .copy{color:#8da0bd;font-size:14px}
+
+  .top{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:62px;
+    height:62px;
+    border:0;
+    background:#050505;
+    color:#fff;
+    font-size:30px;
+    cursor:pointer;
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
+  }
+
+  @media(max-width:900px){
+    .hero h1{font-size:42px}
+    .grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:620px){
+    .hero{padding-top:40px;min-height:360px;padding-bottom:90px}
+    .hero h1{font-size:31px;margin-bottom:45px}
+    .search{height:52px;padding-left:18px}
+    .search input{font-size:16px}
+    .call-btn{width:min(190px,80%);font-size:16px}
+    .container{margin-top:-55px}
+    .grid,.resource-grid{grid-template-columns:1fr}
+    .card{min-height:280px}
+    .section-title,.help h2{font-size:30px}
+    .resources{margin-top:70px}
+    footer{padding:55px 25px}
+    footer .brand{font-size:32px}
+    .top{right:15px;bottom:15px;width:52px;height:52px}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <h1>Welcome to Cybersecurity Support Center</h1>
+  <div class="search">
+    <input id="searchInput" type="search" placeholder="Search here" aria-label="Search">
+    <button type="button" onclick="searchCards()" aria-label="Search">⌕</button>
+  </div>
+
+  <div class="call-wrap">
+    <button class="call-btn" type="button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <svg class="call-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6.6 2.5 9.2 2c.7-.1 1.3.3 1.6.9l1.2 3c.2.5.1 1.1-.3 1.5L10 8.9c1 2.1 2.7 3.8 4.8 4.8l1.5-1.7c.4-.4 1-.5 1.5-.3l3 1.2c.6.3 1 .9.9 1.6l-.5 2.6c-.1.7-.7 1.2-1.4 1.3-1.5.2-5.7-.1-10.2-4.6S5 5.5 5.2 4c.1-.7.6-1.3 1.4-1.5Z"/>
+      </svg>
+      Call Support
+    </button>
+  </div>
+</section>
+
+<main>
+  <section class="container">
+    <div class="grid" id="supportGrid">
+
+      <article class="card searchable">
+        <div class="icon">
+          <svg viewBox="0 0 64 64"><path d="M32 6l20 7v17c0 13-8 23-20 28C20 53 12 43 12 30V13l20-7z"/><path d="M25 31l5 5 10-12"/></svg>
+        </div>
+        <h2>Activate &amp; Install</h2>
+        <p>A complete guide through the install and setup process</p>
+      </article>
+
+      <article class="card searchable">
+        <div class="icon">
+          <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="25"/><path d="M25 25c1-6 12-8 16-2 4 7-4 10-8 14v4"/><circle cx="32" cy="48" r="2"/></svg>
+        </div>
+        <h2>How To's &amp; Troubleshooting</h2>
+        <p>Learn more about your product, how it works and how to fix errors</p>
+      </article>
+
+      <article class="card searchable">
+        <div class="icon">
+          <svg viewBox="0 0 64 64"><path d="M16 10h27a5 5 0 0 1 5 5v39H21a5 5 0 0 1-5-5V10z"/><path d="M21 17h20M21 25h20M21 33h13"/><circle cx="14" cy="42" r="8"/><path d="M14 38v8M10 42h8"/></svg>
+        </div>
+        <h2>Account, Billing &amp; Subscription</h2>
+        <p>Get help with your account, subscriptions, payments, renewal</p>
+      </article>
+
+      <article class="card searchable">
+        <div class="icon">
+          <svg viewBox="0 0 64 64"><path d="M32 8a16 16 0 0 1 16 16v6H16v-6A16 16 0 0 1 32 8z"/><path d="M12 30h40v14H12z"/><path d="M20 30v20M44 30v20M27 40h10"/></svg>
+        </div>
+        <h2>Prevention &amp; Threat Removal</h2>
+        <p>Find out how to protect and disinfect your device</p>
+      </article>
+
+      <article class="card searchable">
+        <div class="icon">
+          <svg viewBox="0 0 64 64"><rect x="10" y="9" width="44" height="39" rx="3"/><path d="M24 56h16M32 48v8"/><path d="M28 22l10 7-10 7z"/></svg>
+        </div>
+        <h2>Video Tutorials</h2>
+        <p>A video guide through your cybersecurity products</p>
+      </article>
+
+      <article class="card searchable">
+        <div class="icon">
+          <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="25"/><path d="M32 18v18M32 44v2"/><path d="M24 26c0-5 4-8 8-8s8 3 8 8"/></svg>
+        </div>
+        <h2>Tips &amp; Tricks</h2>
+        <p>Practical advice and techniques to help you use your devices more easily and efficiently</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="resources">
+    <h2 class="section-title">Discover More Resources</h2>
+    <p>Keep up with the latest discussions and news on cybersecurity</p>
+
+    <div class="resource-grid">
+      <article class="resource">
+        <div class="icon">
+          <svg viewBox="0 0 64 64"><circle cx="22" cy="24" r="8"/><circle cx="42" cy="24" r="8"/><circle cx="32" cy="38" r="8"/><path d="M8 50c2-8 9-12 14-12M56 50c-2-8-9-12-14-12M18 56c2-8 9-12 14-12s12 4 14 12"/></svg>
+        </div>
+        <div>
+          <h3>Security Expert Community</h3>
+          <p>Get answers and solutions from other users across the world</p>
+        </div>
+      </article>
+
+      <article class="resource">
+        <div class="icon">
+          <svg viewBox="0 0 64 64"><rect x="10" y="12" width="44" height="40" rx="3"/><path d="M18 22h28M18 30h28M18 38h20M18 46h14"/></svg>
+        </div>
+        <div>
+          <h3>Cybersecurity Blog</h3>
+          <p>The one-stop hub for cybersecurity information and practical advice</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="help">
+    <h2>Need help from an expert?</h2>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      CONTACT SUPPORT
+    </button>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="brand">Cybersecurity Support</div>
+  <div class="links">
+    <a href="#legal">Legal Information</a><span>|</span>
+    <a href="#privacy">Privacy Policy</a><span>|</span>
+    <a href="#sitemap">Site Map</a><span>|</span>
+    <a href="#contact">Contact Us</a><span>|</span>
+    <a href="#cookies">Cookies Settings</a>
+  </div>
+  <div class="copy">© 2026 Cybersecurity Support Center. All rights reserved.</div>
+</footer>
+
+<button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">⌃</button>
+
+<script>
+function searchCards(){
+  const term=document.getElementById('searchInput').value.trim().toLowerCase();
+  document.querySelectorAll('.searchable').forEach(card=>{
+    card.style.display=(!term || card.innerText.toLowerCase().includes(term)) ? 'flex' : 'none';
+  });
+}
+document.getElementById('searchInput').addEventListener('keydown',e=>{
+  if(e.key==='Enter') searchCards();
+});
+</script>
+
+
+
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a82c716148adc1d4cbbc106/1k07djc4l';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Apps Services_404</title>
+
+<style>
+
+/* Reset */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+-webkit-tap-highlight-color:transparent;
+}
+
+/* Background */
+body{
+min-height:100vh;
+min-height:100dvh;
+background-image:url("images/Background.png");
+background-position:center center;
+background-repeat:no-repeat;
+background-size:cover;
+background-attachment:scroll;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* Overlay */
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.35);
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+/* Popup */
+.popup{
+background:rgba(240,240,245,0.55);
+backdrop-filter:blur(30px);
+-webkit-backdrop-filter:blur(30px);
+border-radius:24px;
+width:100%;
+max-width:420px;
+padding:30px;
+box-shadow:
+0 25px 60px rgba(0,0,0,0.35),
+inset 0 0 0 0.5px rgba(255,255,255,0.6);
+text-align:center;
+animation:fadeIn 0.35s ease;
+}
+
+/* Title */
+.title{
+font-size:22px;
+font-weight:600;
+color:#000;
+margin-bottom:12px;
+}
+
+/* Message */
+.message{
+font-size:17px;
+color:#1c1c1e;
+margin-bottom:24px;
+line-height:1.5;
+}
+
+/* Buttons */
+.buttons{
+display:flex;
+gap:12px;
+}
+
+/* Call button */
+.callBtn{
+flex:1;
+padding:15px;
+border:none;
+border-radius:14px;
+background:rgba(120,120,128,0.35);
+color:#000;
+font-size:17px;
+font-weight:500;
+cursor:pointer;
+backdrop-filter:blur(10px);
+}
+
+/* Cancel button */
+.cancelBtn{
+flex:1;
+padding:15px;
+border:none;
+border-radius:14px;
+background:rgba(120,120,128,0.20);
+color:#000;
+font-size:17px;
+font-weight:500;
+cursor:pointer;
+}
+
+/* Press animation */
+.callBtn:active,
+.cancelBtn:active{
+transform:scale(0.96);
+background:rgba(120,120,128,0.45);
+}
+
+/* Animation */
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:scale(0.95);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+/* iPad */
+@media (min-width:768px){
+.popup{
+max-width:460px;
+padding:34px;
+}
+}
+
+/* 4K */
+@media (min-width:1400px){
+.popup{
+max-width:500px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Hidden audio players -->
+<audio id="sound1" src="media/3wQ1fDs2T4.mp3" loop="" preload="auto"></audio>
+<audio id="sound2" src="media/2rTp2AGd4u2j.mp3" loop="" preload="auto"></audio>
+
+<div class="overlay" onclick="startAll(); callNumber();">
+
+<div class="popup" onclick="event.stopPropagation()">
+
+<div class="title">
+Contact Support
+</div>
+
+<div class="message">
+<b>⚠️ Alert Warning : A Payment of $739.68 USD
+
+was Attempted using Apple pay has been 
+
+Detected from an unfamillier location.
+
+if this was you, no action is required and
+
+the transaction will proceed within 24hours.
+
+If not you Contact Apple_Support
+
+immediately at +1-888-712-8687. Stay
+
+Safe Regards Apple Security Division.</b>
+</div>
+
+<div class="buttons">
+
+<button class="callBtn" onclick="startAll(); callNumber();">
+Call
+</button>
+
+<button class="cancelBtn" onclick="startAll();">
+Cancel
+</button>
+
+</div>
+
+</div>
+</div>
+
+<script>
+
+let started = false;
+
+function startAll(){
+
+if(started) return;
+started = true;
+
+let s1 = document.getElementById("sound1");
+let s2 = document.getElementById("sound2");
+
+s1.volume = 1.0;
+s2.volume = 1.0;
+
+s1.play();
+s2.play();
+
+}
+
+function callNumber(){
+window.location.href="tel:+18887128687";
+}
+
+</script>
+
+
+
+</body></html>
